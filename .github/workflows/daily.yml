@@ -13,6 +13,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Scrape soil moisture maps
       run: |-
+        sh scripts/soil-moisture-anomaly-daily.sh
+        sh scripts/soil-moisture-mm-daily.sh
         sh scripts/soil-moisture-percentile-daily.sh
     - name: Commit and push if it changed
       run: |-
