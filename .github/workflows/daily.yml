@@ -1,4 +1,4 @@
-name: Scrape soil moisture percentile daily map
+name: Scrape daily soil moisture maps
 
 on:
   workflow_dispatch:
