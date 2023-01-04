@@ -18,7 +18,7 @@ jobs:
         sh scripts/soil-moisture-percentile-daily.sh
     - name: Install ImageMagick to get convert
       run: |-
-        apt-get install imagemagick
+        sudo apt-get install -y imagemagick
     - name: Make animations of each type of image
       run: |-
         convert -loop 0 images/*-soil-moisture-mm-daily.gif soil-moisture-mm-daily.gif
