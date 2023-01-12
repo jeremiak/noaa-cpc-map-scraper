@@ -16,11 +16,23 @@ jobs:
         sh scripts/soil-moisture-anomaly-daily.sh
         sh scripts/soil-moisture-mm-daily.sh
         sh scripts/soil-moisture-percentile-daily.sh
+    - name: Make animations of anomaly-daily
+      uses: jruipinto/ImageMagick-action@v1
+      with: 
+        command: convert -loop 0 images/*-soil-moisture-anomaly-daily.gif soil-moisture-anomaly-daily.gif
+    - name: Make animations of mm-daily
+      uses: jruipinto/ImageMagick-action@v1
+      with: 
+        command: convert -loop 0 images/*-soil-moisture-mm-daily.gif soil-moisture-mm-daily.gif
+    - name: Make animations of percentile-daily
+      uses: jruipinto/ImageMagick-action@v1
+      with: 
+        command: convert -loop 0 images/*-soil-moisture-percentile-daily.gif soil-moisture-percentile-daily.gif
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"
-        git add images/*.gif
+        git add images/*.gif *.gif
         timestamp=$(date -u)
         git commit -m "Latest data: ${timestamp}" || exit 0
         git push
