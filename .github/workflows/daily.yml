@@ -20,9 +20,9 @@ jobs:
       uses: jruipinto/ImageMagick-action@v1
       with: 
         command: |-
-          convert -loop 0 images/*-soil-moisture-mm-daily.gif soil-moisture-mm-daily.gif
-          convert -loop 0 images/*-soil-moisture-anomaly-daily.gif soil-moisture-anomaly-daily.gif
-          convert -loop 0 images/*-soil-moisture-percentile-daily.gif soil-moisture-percentile-daily.gif
+          magick convert -loop 0 images/*-soil-moisture-mm-daily.gif soil-moisture-mm-daily.gif
+          magick convert -loop 0 images/*-soil-moisture-anomaly-daily.gif soil-moisture-anomaly-daily.gif
+          magick convert -loop 0 images/*-soil-moisture-percentile-daily.gif soil-moisture-percentile-daily.gif
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
