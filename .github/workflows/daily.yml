@@ -19,10 +19,7 @@ jobs:
     - name: Make animations of each type of image
       uses: jruipinto/ImageMagick-action@v1
       with: 
-        command: |-
-          magick convert -loop 0 images/*-soil-moisture-mm-daily.gif soil-moisture-mm-daily.gif
-          magick convert -loop 0 images/*-soil-moisture-anomaly-daily.gif soil-moisture-anomaly-daily.gif
-          magick convert -loop 0 images/*-soil-moisture-percentile-daily.gif soil-moisture-percentile-daily.gif
+        command: convert -loop 0 images/*-soil-moisture-mm-daily.gif soil-moisture-mm-daily.gif
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
